@@ -1,0 +1,99 @@
+.modalOverlay {
+    align-items: center;
+    background: rgba(16, 17, 18, 0.85);
+    /* backdrop-filter: blur(6px); */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.gameoverModal {
+    background: var(--background-2);
+    border: 1px solid rgba(86, 182, 198, 0.15);
+    border-radius: 12px;
+    padding: 2rem 2rem 1.75rem;
+    text-align: center;
+    width: 360px;
+}
+
+.victoryText {
+    color: var(--success-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 0 0 1.5rem 0;
+}
+
+.defeatText {
+    color: var(--danger-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin: 0 0 1.5rem 0;
+}
+
+.finalStats {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1.25rem;
+}
+
+.finalCard {
+    background: var(--background);
+    border: 1px solid rgba(86, 182, 198, 0.1);
+    border-radius: 8px;
+    padding: 1rem 0.75rem;
+}
+
+.finalCard h3 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.finalCard p {
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.gameoverMessage {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+}
+
+.restartButton {
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 10px 24px;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+.restartButton:hover {
+    opacity: 0.85;
+}
+
+.restartButton:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,75 @@
+.goalGridContainer {
+    background: var(--background-2);
+    border: 1px solid rgba(86, 182, 198, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: fit-content;
+}
+
+.goalGrid {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.goalCell {
+    align-items: center;
+    background: var(--background);
+    border: 1px solid rgba(86, 182, 198, 0.12);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 52px;
+    justify-content: center;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    width: 52px;
+}
+
+.goalCell:hover {
+    background: rgba(86, 182, 198, 0.06);
+    border-color: rgba(86, 182, 198, 0.35);
+}
+
+.goalCell:active {
+    transform: scale(0.95);
+}
+
+/* Estado: gol anotado */
+.goalCell.goal {
+    background: rgba(192, 57, 43, 0.15);
+    border-color: rgba(192, 57, 43, 0.5);
+}
+
+/* Estado: tapada */
+.goalCell.save {
+    background: rgba(42, 157, 110, 0.12);
+    border-color: rgba(42, 157, 110, 0.4);
+}
+
+.coordinate {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: color 0.15s ease;
+}
+
+.goalCell:hover .coordinate {
+    color: var(--accent);
+}
+
+.goalCell.goal .coordinate {
+    color: rgba(192, 57, 43, 0.8);
+}
+
+.goalCell.save .coordinate {
+    color: rgba(42, 157, 110, 0.8);
+}
+
+.result {
+    font-size: 1.1rem;
+    line-height: 1;
+}

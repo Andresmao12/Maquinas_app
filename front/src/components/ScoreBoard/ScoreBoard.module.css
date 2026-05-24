@@ -1,0 +1,74 @@
+.scoreboard {
+    background: var(--background-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.sectionTitle {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.25rem 0;
+    text-transform: uppercase;
+}
+
+.scoreboardGrid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.25rem;
+}
+
+.scoreCard {
+    background: var(--background);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 0.875rem 0.75rem;
+    text-align: center;
+}
+
+.scoreCard h3 {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.scoreCard p {
+    color: var(--secondary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.lastResult {
+    border-top: 1px solid var(--border-subtle);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* Variantes de resultado */
+.goalText {
+    color: var(--danger-color);
+}
+
+.saveText {
+    color: var(--success-color);
+}
+
+.invalidText {
+    color: var(--text-disabled);
+}
+
+.repeatText {
+    color: var(--highlight);
+}

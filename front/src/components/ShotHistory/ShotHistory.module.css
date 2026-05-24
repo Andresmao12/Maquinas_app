@@ -1,0 +1,54 @@
+.shotHistory {
+    background: var(--background-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 1.5rem;
+}
+
+.sectionTitle {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+}
+
+.historyItem {
+    align-items: center;
+    background: var(--background);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    display: grid;
+    font-size: 0.8rem;
+    gap: 8px;
+    grid-template-columns: 20px 40px 1fr;
+    padding: 8px 12px;
+    transition: border-color 0.15s ease;
+}
+
+.historyItem:hover {
+    border-color: var(--border-input);
+}
+
+/* Primera columna: número de tiro */
+.historyItem span:nth-child(1) {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
+
+/* Segunda columna: coordenada */
+.historyItem span:nth-child(2) {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* Tercera columna: resultado */
+.historyItem span:nth-child(3) {
+    color: var(--text-disabled);
+    font-size: 0.75rem;
+}

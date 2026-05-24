@@ -1,0 +1,61 @@
+.roleSelector {
+    align-items: center;
+    background: var(--background-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.sectionTitle {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.roleButtons {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.roleButtons button {
+    background: var(--background);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 1.25rem 1rem;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.roleButtons button:hover {
+    background: rgba(23, 12, 121, 0.4);
+    border-color: var(--accent);
+}
+
+.roleButtons button:active {
+    transform: scale(0.97);
+}
+
+/* Primer botón — Portero */
+.roleButtons button:nth-child(1):hover {
+    background: rgba(42, 157, 110, 0.12);
+    border-color: var(--success-color);
+}
+
+/* Segundo botón — Pateador */
+.roleButtons button:nth-child(2):hover {
+    background: rgba(192, 57, 43, 0.12);
+    border-color: var(--danger-color);
+}

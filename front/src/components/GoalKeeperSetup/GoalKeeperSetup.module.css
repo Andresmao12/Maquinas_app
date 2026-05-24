@@ -1,0 +1,99 @@
+.goalkeeperSetup {
+    background: var(--background-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.sectionTitle {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.setupInfo {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0 0 1rem 0;
+}
+
+.selectionCounter {
+    color: var(--accent);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.setupGrid {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(8, 1fr);
+    margin-bottom: 1.25rem;
+}
+
+.setupCell {
+    align-items: center;
+    background: var(--background);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    font-size: 0.65rem;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    width: 100%;
+}
+
+.setupCell:hover {
+    background: rgba(86, 182, 198, 0.06);
+    border-color: var(--border-input);
+    color: var(--accent);
+}
+
+.selectedCell {
+    background: rgba(23, 12, 121, 0.35);
+    border-color: var(--accent);
+    color: var(--highlight);
+    font-size: 1rem;
+}
+
+.selectedCell:hover {
+    background: rgba(23, 12, 121, 0.5);
+}
+
+.initializeButton {
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 10px 24px;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+.initializeButton:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.initializeButton:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.initializeButton:disabled {
+    background: rgba(23, 12, 121, 0.3);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+}

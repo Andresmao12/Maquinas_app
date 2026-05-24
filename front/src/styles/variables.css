@@ -1,0 +1,27 @@
+:root {
+    --background: #101112;
+    --background-2: #232527;
+
+    --color: #FFF;
+    --color-aux: #101010;
+
+    --primary: #170C79;
+    --secondary: #EFE3CA;
+
+    --accent: #56B6C6;
+    --highlight: #8ACBD0;
+
+    /* Estados */
+    --success-color: #2A9D6E;
+    --danger-color: #C0392B;
+
+    --border-subtle: rgba(86, 182, 198, 0.15);
+    /* bordes de paneles */
+    --border-input: rgba(86, 182, 198, 0.25);
+    /* bordes de inputs */
+    --text-muted: rgba(255, 255, 255, 0.35);
+    /* texto secundario */
+    --text-disabled: rgba(255, 255, 255, 0.4);
+    /* botones deshabilitados */
+
+}

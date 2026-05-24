@@ -1,0 +1,79 @@
+.fsmContainer {
+    background: var(--background-2);
+    border: 1px solid rgba(86, 182, 198, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.sectionTitle {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem 0;
+}
+
+.fsmStates {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.fsmWrapper {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+}
+
+.fsmState {
+    align-items: center;
+    background: var(--background);
+    border: 1px solid rgba(86, 182, 198, 0.2);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.35);
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: 600;
+    height: 44px;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    width: 44px;
+}
+
+.activeState {
+    background: var(--primary);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(86, 182, 198, 0.15);
+    color: var(--color);
+}
+
+/* q5 cuando está activo es derrota — sobreescribe active-state */
+.defeatState.activeState {
+    background: var(--danger-color);
+    border-color: rgba(192, 57, 43, 0.6);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.2);
+}
+
+.fsmArrow {
+    color: rgba(86, 182, 198, 0.35);
+    font-size: 0.85rem;
+    /* user-select: none; */
+}
+
+.fsmCurrentState {
+    border-top: 1px solid rgba(86, 182, 198, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.fsmCurrentState span {
+    color: var(--accent);
+    font-weight: 600;
+    margin-left: 6px;
+}
