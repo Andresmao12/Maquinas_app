@@ -18,80 +18,48 @@ import ShotHistory from "./components/ShotHistory/ShotHistory";
 
 function App() {
 
-  const [connected, setConnected]
-    = useState(false);
+  const [connected, setConnected] = useState(false);
+  const [role, setRole] = useState(null);
+  const [shots, setShots] = useState([]);
+  const [lastResult, setLastResult] = useState("");
+  const [currentState, setCurrentState] = useState("q1");
+  const [transition, setTransition] = useState("");
+  const [gameOver, setGameOver] = useState(false);
+  const [gameData, setGameData] = useState({
+    goals: 0,
+    saves: 0,
+    shots: 0
+  });
 
-  const [role, setRole]
-    = useState(null);
-
-  const [shots, setShots]
-    = useState([]);
-
-  const [lastResult, setLastResult]
-    = useState("");
-
-  const [currentState, setCurrentState]
-    = useState("q1");
-
-  const [transition, setTransition]
-    = useState("");
-
-  const [gameOver, setGameOver]
-    = useState(false);
-
-  const [gameData, setGameData]
-    = useState({
-      goals: 0,
-      saves: 0,
-      shots: 0
-    });
 
   const connectToServer = (ip) => {
 
-    const socket =
-      createSocketConnection(ip);
+    const socket = createSocketConnection(ip);
 
-    socket.on("connect", () => {
+    socket.on("connect", () => { setConnected(true) });
 
-      setConnected(true);
-    });
+    socket.on("disconnect", () => { setConnected(false) });
 
-    socket.on("disconnect", () => {
+    socket.on("shot_result", (data) => {
 
-      setConnected(false);
-    });
+      setLastResult(data.status);
+      setCurrentState(data.state);
+      setTransition(data.transition);
+      setGameData(data.game_data);
 
-    socket.on(
-      "shot_result",
-      (data) => {
-
-        setLastResult(data.status);
-
-        setCurrentState(data.state);
-
-        setTransition(
-          data.transition
-        );
-
-        setGameData(
-          data.game_data
-        );
-
-        setShots((prev) => [
-          ...prev,
-          {
-            coordinate:
-              data.coordinate,
-            status:
-              data.status
-          }
-        ]);
-
-        if (data.game_over) {
-
-          setGameOver(true);
+      setShots((prev) => [
+        ...prev,
+        {
+          coordinate:
+            data.coordinate,
+          status:
+            data.status
         }
-      }
+      ]);
+
+      if (data.game_over) setGameOver(true)
+
+    }
     );
   };
 
@@ -101,30 +69,19 @@ function App() {
 
     if (!socket) return;
 
-    socket.emit(
-      "shoot",
-      {
-        coordinate
-      }
-    );
+    socket.emit("shoot", { coordinate });
+
   };
 
-  const restartGame = () => {
-
-    window.location.reload();
-  };
+  const restartGame = () => { window.location.reload(); };
 
   return (
 
     <div className="app">
 
-      <h1 className="title">
-        FSM PENALES
-      </h1>
+      <h1 className="title">FSM PENALES</h1>
 
-      <RoleSelector
-        onSelect={setRole}
-      />
+      <RoleSelector onSelect={setRole} />
 
       <ConnectionPanel
         connected={connected}
@@ -143,24 +100,11 @@ function App() {
         transition={transition}
       />
 
-      {
-        role === "goalkeeper" && (
-          <GoalkeeperSetup />
-        )
-      }
+      {role === "goalkeeper" && <GoalkeeperSetup />}
 
-      {
-        role === "shooter" && (
-          <GoalGrid
-            shots={shots}
-            onShoot={shoot}
-          />
-        )
-      }
+      {role === "shooter" && <GoalGrid shots={shots} onShoot={shoot} />}
 
-      <ShotHistory
-        shots={shots}
-      />
+      <ShotHistory shots={shots} />
 
       <GameOverModal
         visible={gameOver}
