@@ -8,3 +8,4 @@ connected_roles = {
     "goalkeeper": None,
     "shooter": None
 }
+roles_lock = Lock()

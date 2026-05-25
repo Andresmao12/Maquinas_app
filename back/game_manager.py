@@ -2,6 +2,7 @@ from shared.validators import validate_coordinate
 from shared.constants import RESPONSES, MAX_SHOTS
 from shared.fsm import GoalkeeperFSM
 
+from shared import session_storage
 
 class GameManager:
 
@@ -36,6 +37,14 @@ class GameManager:
         """
         Procesa un disparo recibido desde el cliente
         """
+
+        if session_storage.game.is_game_over():
+
+            emit("shot_result", {
+                "status": "410:GAME_OVER"
+            })
+
+            return
 
         coordinate = coordinate.strip().upper()
 

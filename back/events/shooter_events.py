@@ -2,10 +2,8 @@ from flask_socketio import emit
 
 from decorators import role_required
 
-from state.globals import (
-    game,
-    game_lock
-)
+from ..shared import session_storage
+
 
 def register_shooter_events(socketio):
 
@@ -28,9 +26,9 @@ def register_shooter_events(socketio):
             ""
         )
 
-        with game_lock:
+        with session_storage.game_lock:
 
-            result = game.process_shot(
+            result = session_storage.game.process_shot(
                 coordinate
             )
 
@@ -45,10 +43,10 @@ def register_shooter_events(socketio):
                 result["state"],
 
                 "game_data":
-                game.get_game_data(),
+                session_storage.game.get_game_data(),
 
                 "game_over":
-                game.is_game_over()
+                session_storage.game.is_game_over()
             }
 
         emit(
