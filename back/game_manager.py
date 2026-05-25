@@ -68,7 +68,7 @@ class GameManager:
         self.goals += 1
 
         # Actualizamos FSM
-        new_state = self.fsm.transition(result=True)
+        new_state = self.fsm.shot_fired(result=True)
 
         return {
             "status": RESPONSES["GOAL"],

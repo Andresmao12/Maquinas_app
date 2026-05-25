@@ -8,10 +8,10 @@ class GoalkeeperFSM:
         Estado inicial: q0 - no se han realizado disparos
         """
 
-        self.current_state = FSM_STATES[1]
+        self.current_state = FSM_STATES[0]
         self.goals_conceded = 0
 
-    def shotFired(self, result: bool):
+    def shot_fired(self, result: bool):
         """
         Cambiamos estado dependiendo del resultado del tiro
         """
