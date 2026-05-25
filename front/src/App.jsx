@@ -88,16 +88,16 @@ function App() {
         onConnect={connectToServer}
       />
 
+      <FSMVisualizer
+        currentState={currentState}
+        transition={transition}
+      />
+
       <ScoreBoard
         goals={gameData.goals}
         saves={gameData.saves}
         shots={gameData.shots}
         lastResult={lastResult}
-      />
-
-      <FSMVisualizer
-        currentState={currentState}
-        transition={transition}
       />
 
       {role === "goalkeeper" && <GoalkeeperSetup />}

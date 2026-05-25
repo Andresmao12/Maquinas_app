@@ -8,6 +8,8 @@
     gap: 1.5rem;
     padding: 2.5rem 2rem;
     text-align: center;
+    
+    width: 100%;
 }
 
 .sectionTitle {

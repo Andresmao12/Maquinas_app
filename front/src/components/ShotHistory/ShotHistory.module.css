@@ -6,6 +6,8 @@
     flex-direction: column;
     gap: 6px;
     padding: 1.5rem;
+    width: 100%;
+
 }
 
 .sectionTitle {
