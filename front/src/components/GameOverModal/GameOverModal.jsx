@@ -14,7 +14,7 @@ function GameOverModal({ visible, goals, saves, onRestart }) {
             <motion.div
                 className={styles.gameoverModal}
                 initial={{ scale: 0.7, opacity: 0 }}
-                animate={{ scale: 1,   opacity: 1 }}
+                animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4 }}
             >
 
@@ -43,9 +43,10 @@ function GameOverModal({ visible, goals, saves, onRestart }) {
                 </div>
 
                 <p className={styles.gameoverMessage}>
-                    {playerWon
-                        ? "El portero alcanzó el estado q5"
-                        : "La defensa resistió los ataques"}
+                    { playerWon
+                            ? "El pateador derrotó al portero"
+                            : "La defensa resistió los ataques"
+                    }
                 </p>
 
                 <button

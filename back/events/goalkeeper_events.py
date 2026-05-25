@@ -1,10 +1,10 @@
 from flask_socketio import emit
 
-from decorators import role_required
+from events.decorators import role_required
 
 from game_manager import GameManager
 
-from ..shared import session_storage
+from shared import session_storage
 
 
 def register_goalkeeper_events(socketio):

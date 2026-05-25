@@ -3,7 +3,7 @@ from functools import wraps
 from flask import request
 from flask_socketio import emit
 
-from ..shared.session_storage import connected_roles
+from shared.session_storage import connected_roles
 
 
 def role_required(required_role):

@@ -3,7 +3,7 @@ import styles from "./FSMVisualizer.module.css";
 
 function FSMVisualizer({ currentState }) {
 
-    const states = ["q1", "q2", "q3", "q4", "q5"];
+    const states = ["q0", "q1", "q2", "q3", "q4", "q5"];
 
     return (
 

@@ -1,8 +1,8 @@
 from flask_socketio import emit
 
-from decorators import role_required
+from events.decorators import role_required
 
-from ..shared import session_storage
+from shared import session_storage
 
 
 def register_shooter_events(socketio):

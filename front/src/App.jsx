@@ -22,7 +22,7 @@ function App() {
   const [role, setRole] = useState(null);
   const [shots, setShots] = useState([]);
   const [lastResult, setLastResult] = useState("");
-  const [currentState, setCurrentState] = useState("q1");
+  const [currentState, setCurrentState] = useState("q0");
   const [transition, setTransition] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [gameData, setGameData] = useState({
@@ -34,17 +34,23 @@ function App() {
 
   const connectToServer = (ip) => {
 
-    const socket = createSocketConnection(ip);
+    if (!role) {
+      alert("Selecciona un rol");
+      return;
+    }
+
+    const socket = createSocketConnection(ip, role);
 
     socket.on("connect", () => { setConnected(true) });
 
     socket.on("disconnect", () => { setConnected(false) });
 
+    socket.off("shot_result");
     socket.on("shot_result", (data) => {
 
       setLastResult(data.status);
       setCurrentState(data.state);
-      setTransition(data.transition);
+      setTransition(data.transition); //! REVISAR QUE CONTENIA TRANSITION
       setGameData(data.game_data);
 
       setShots((prev) => [
@@ -61,6 +67,11 @@ function App() {
 
     }
     );
+
+    socket.on("unauthorized", (data) => alert(data.message));
+
+    socket.on("server_message", (data) => console.log(data.message));
+
   };
 
   const shoot = (coordinate) => {

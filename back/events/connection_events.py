@@ -1,7 +1,7 @@
 from flask import request
 from flask_socketio import emit
 
-from ..shared.session_storage import connected_roles, roles_lock    
+from shared.session_storage import connected_roles, roles_lock    
 
 
 def register_connection_events(socketio):
