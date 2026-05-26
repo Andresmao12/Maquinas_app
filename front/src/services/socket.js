@@ -10,7 +10,8 @@ export const createSocketConnection = (serverIp, role) => {
     socket = io(`http://${serverIp}:5000`,
         {
             autoConnect: true,
-            auth: { role }
+            auth: { role },
+            transports: ["polling"]
         }
     );
 

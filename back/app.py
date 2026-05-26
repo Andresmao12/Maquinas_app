@@ -17,7 +17,6 @@ socketio = SocketIO(
     cors_allowed_origins="*"
 )
 
-
 register_connection_events(socketio)
 register_goalkeeper_events(socketio)
 register_shooter_events(socketio)

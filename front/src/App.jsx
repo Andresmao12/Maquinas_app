@@ -48,10 +48,17 @@ function App() {
     socket.off("shot_result");
     socket.on("shot_result", (data) => {
 
+      console.log("---> DATA EN LOS ESTADOS: ", data);
       setLastResult(data.status);
       setCurrentState(data.state);
       setTransition(data.transition); //! REVISAR QUE CONTENIA TRANSITION
-      setGameData(data.game_data);
+      setGameData(
+        data.game_data || {
+          goals: 0,
+          saves: 0,
+          shots: 0
+        }
+      );;
 
       setShots((prev) => [
         ...prev,

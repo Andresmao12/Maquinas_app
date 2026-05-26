@@ -11,9 +11,7 @@ def register_shooter_events(socketio):
     @role_required("shooter")
     def handle_shoot(data):
 
-        global game
-
-        if game is None:
+        if session_storage.game is None:
 
             emit("shot_result", {
                 "status": "500:NO_GAME"
@@ -21,6 +19,7 @@ def register_shooter_events(socketio):
 
             return
 
+        print (f"Disparo recibido: {data}")
         coordinate = data.get(
             "coordinate",
             ""
